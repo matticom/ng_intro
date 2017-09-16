@@ -1,0 +1,54 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zeiterfassung</a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" placeholder="Email" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Anmelden</button>
+      </form>
+
+      <!--<form class="navbar-form navbar-right">-->
+        <!--<div class="dropdown">-->
+          <!--<a href="#" class="btn btn-info btn-md" data-toggle="dropdown"><span-->
+            <!--class="glyphicon glyphicon-menu-hamburger"></span></a>-->
+          <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">Aktion</a></li>-->
+            <!--<li><a href="#">Andere Aktion</a></li>-->
+            <!--<li><a href="#">Irgendwas anderes</a></li>-->
+            <!--<li role="separator" class="divider"></li>-->
+            <!--<li class="dropdown-header">Nav-Überschrift</li>-->
+            <!--<li><a href="#">Abgetrennter Link</a></li>-->
+            <!--<li><a href="#">Noch ein abgetrennter Link</a></li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</form>-->
+      <form class="navbar-form navbar-right">
+        <div [class]="dropdownStatus">
+          <a href="#" class="btn btn-info btn-md" data-toggle="dropdown" role="button" aria-haspopup="true"
+             [attr.aria-expanded]="expand" (click)="toggleDropDown()"><span
+            class="glyphicon glyphicon-menu-hamburger"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Aktion</a></li>
+            <li><a href="#">Andere Aktion</a></li>
+            <li><a href="#">Irgendwas anderes</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="dropdown-header">Nav-Überschrift</li>
+            <li><a href="#">Abgetrennter Link</a></li>
+            <li><a href="#">Noch ein abgetrennter Link</a></li>
+          </ul>
+        </div>
+      </form>
+
+
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>

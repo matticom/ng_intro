@@ -1,0 +1,13 @@
+<input type="search"
+       class="form-control"
+       placeholder="Please enter search term"
+       [formControl]="searchField">
+<hr/>
+<ul>
+  <li *ngFor="let search of searches">{{ search }}</li>
+</ul>
+
+<!--<pre>{{myform.value | json}}</pre>-->
+<!--<pre>Form valid:   '{{myform.valid | json}}'</pre>-->
+<!--<pre>Password invalid:   '{{password.invalid | json}}'</pre>-->
+<!--<pre>Password dirty:   '{{password.dirty | json}}'</pre>-->

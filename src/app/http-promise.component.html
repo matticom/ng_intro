@@ -1,0 +1,70 @@
+<div class="m-t-1">
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="search"
+             class="form-control"
+             placeholder="Enter search string"
+             #search
+             [formControl]="actualWrittenWordsInInput"
+      >
+    </div>
+    <button class="btn btn-primary"
+            (click)="onSearch(search.value)">
+      <!--(click)="doSearch(search.value)">-->
+      Search
+    </button>
+  </form>
+</div>
+
+<div class="text-center">
+  <p class="lead" *ngIf="loading">Loading...</p>
+</div>
+
+<div class="m-t-1">
+  <div class="list-group">
+    <a [routerLink]="['/artist', track.artistId]"
+       class="list-group-item list-group-item-action"
+       *ngFor="let track of itunes.results">
+      <img src="{{track.thumbnail}}">
+      {{ track.trackName }} <span class="text-muted">by</span> {{ track.artist }}
+    </a>
+  </div>
+</div>
+
+<!--<div class="m-t-1">-->
+<!--<ul class="list-group">-->
+<!--<li class="list-group-item"-->
+<!--*ngFor="let track of itunes.results">-->
+<!--<img src="{{track.thumbnail}}">-->
+<!--<a target="_blank"-->
+<!--href="{{track.link}}">{{ track.trackName }}-->
+<!--</a>-->
+<!--<a>{{ track.artist }}</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+
+<div class="container">
+  <h2 *ngIf="itunes.results?.length > 0">Ergebnisse der Suche nach '{{term}}'</h2>
+  <table class="table table-striped" *ngIf="itunes.results?.length > 0">
+    <thead>
+    <tr>
+      <th>Artwork</th>
+      <th>Titel</th>
+      <th>Artist</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let track of itunes.results">
+      <td><img src="{{track.thumbnail}}"></td>
+      <td>
+        <a target="_blank"
+           href="{{track.link}}">{{ track.trackName }}
+        </a>
+      </td>
+      <td>{{ track.artist }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,52 @@
+<div class="m-t-1">
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="search"
+             class="form-control"
+             placeholder="Enter search string"
+             [formControl]="searchField">
+    </div>
+  </form>
+</div>
+
+<div class="text-center">
+  <p class="lead" *ngIf="loading">Loading...</p>
+</div>
+
+<div class="m-t-1">
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let track of results | async">
+      <img src="{{track.thumbnail}}">
+      <a target="_blank"
+         href="{{track.link}}">{{ track.trackName }}
+      </a>
+      <a>{{ track.artist }}</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="container">
+  <h2 *ngIf="(results | async)?.length > 0">Ergebnisse der Suche nach '{{term}}'</h2>
+  <table class="table table-striped">
+    <thead *ngIf="(results | async)?.length > 0">
+    <tr>
+      <th>Artwork</th>
+      <th>Titel</th>
+      <th>Artist</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let track of results | async">
+      <td><img src="{{track.thumbnail}}"></td>
+      <td>
+        <a target="_blank"
+           href="{{track.link}}">{{ track.trackName }}
+        </a>
+      </td>
+      <td>{{ track.artist }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

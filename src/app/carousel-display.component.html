@@ -1,0 +1,26 @@
+<carousel-item *ngFor="let img of imgList" [imgUrl]="img">
+</carousel-item>
+<div>
+  <button type="button"
+          class="btn btn-primary" (click)="manuelClearing()">Stop
+  </button>
+  <button type="button"
+          class="btn btn-primary" (click)="manuelStarting()">Start
+  </button>
+</div>
+<h1>{{tm}}</h1>
+<!--<h1 id="demo">{{setTimer()}}</h1>-->
+<!--<button (click)="timerLogic()">Try it</button>-->
+
+<!--<button (click)="clearTimer()">Stop it</button>-->
+<!--<carousel [delay]="2000">-->
+<!--<carousel-item *ngFor="let img of imgList" [imgUrl]="img">-->
+<!--<img src="https://unsplash.it/200?image=0" alt="">-->
+<!--</carousel-item>-->
+<!--<carousel-item>-->
+<!--<img src="https://unsplash.it/200?image=100" alt="">-->
+<!--</carousel-item>-->
+<!--<carousel-item>-->
+<!--<img src="https://unsplash.it/200?image=200" alt="">-->
+<!--</carousel-item>-->
+<!--</carousel>-->

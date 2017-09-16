@@ -1,0 +1,43 @@
+<div class="row">
+
+  <div class="col-md-4" *ngFor="let article of articleList">
+
+    <div class="card" [ngClass]="{  'card-outline-primary':article.pic === '',
+                                    'card-outline-danger':article.pic !== ''  }">
+      <div class="w3-card-4" [ccCardHover] = "{ querySelector1: '.card-title',
+                                                querySelector2: '.card-text'  }">
+        <header class="w3-container w3-blue" >
+          <h1 class="card-title" [style.display]="'none'">
+            {{article.head}}
+          </h1>
+        </header>
+        <div class="w3-container" >
+          <p class="card-text" [style.display]="'none'">
+            {{article.contentText}}
+          </p>
+        </div>
+        <footer class="w3-container w3-blue">
+
+          <p class="card-text">
+            <small [ngStyle]="{'color':'lightblue'}">Last updated {{ article.date | date:"shortDate" }}
+            </small>
+          </p>
+        </footer>
+
+        <img class="card-img-bottom img-fluid" [src]="article.pic">
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="row">
+  <img src="https://unsplash.it/200/300?image=201"
+       [ccRollover]="{
+      'initial':'https://unsplash.it/200/300?image=201',
+      'over':'https://unsplash.it/200/300?image=202'
+      }"
+  #mouseDetectingElement/>
+</div>
