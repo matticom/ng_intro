@@ -27,7 +27,7 @@ export class HttpObservableComponent {
         this.term = term;
         return this.itunes.search(term);
       })
-      //commit test2
+      //commit test3
       .do( () => this.loading = false )
   }
 }
