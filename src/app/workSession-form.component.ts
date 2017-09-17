@@ -1,7 +1,7 @@
 /// <reference path="../../typings/index.d.ts"/>
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as moment from 'moment/moment';
+// import * as moment from 'moment/moment';
 import { WorkSession } from './workSession';
 // import * as $ from 'jquery';
 
@@ -17,7 +17,6 @@ export class WorkSessionFormComponent implements OnInit {
 
   @ViewChild('btn') btnRef:ElementRef;
 
-  somedate: moment.Moment;
   expand = false;
   dropdownStatus = 'dropdown';
   submitted = false;
@@ -41,7 +40,7 @@ export class WorkSessionFormComponent implements OnInit {
   changeClass(): void {
     this.projects = ['project1', 'project2',
       'project3', 'project4'];
-    this.model = new WorkSession(1, this.projects[0], moment('2013-02-08 09+07:00'), moment().utc(), moment.duration('1:00'), 'hell');
+    this.model = new WorkSession(1, this.projects[0], new Date(2013, 2, 28, 9, 29, 31, 303), new Date(), 3600000, 'hell');
   }
 
   clkBtn(): void {
@@ -62,8 +61,6 @@ export class WorkSessionFormComponent implements OnInit {
       .click(function(){
         alert("Text: " + $(this.btnRef.nativeElement).html());
       });
-    this.somedate = moment('2013-02-08 09+07:00');
-    console.log('Moment Date:' + this.somedate.toISOString());
     this.today = new Date();
     this.dd = this.today.getDate();
     this.mm = this.today.getMonth() + 1;

@@ -42,7 +42,10 @@ import {RouteGuardChildrenOnlyLoggedInUserService} from "./route-guard-children-
 import {RouteGuardUnsearchTermService} from "./route-guard-unsearch-term.service";
 import {RouteUrlSaveService} from "./route-url-save.service";
 import {RouteVideolistComponent} from "./route-videolist.component";
-import {TestAuthService} from "./test-auth.service";
+import { TestDefaultPipe } from './test-default.pipe';
+import { TestLoginComponent } from './test-login.component';
+import { TestHoverFocusDirective } from './test-hoverfocus.directive';
+import { ValidatorsEmailDomainDirective } from './validators-email-domain.directive';
 
 
 // export const MAX_JOKES_TOKEN = new InjectionToken<number>("Max Jokes");
@@ -106,7 +109,11 @@ const routes:Routes = [
     RouteAlbumlistComponent,
     RouteArtistComponent,
     RouteTracklistComponent,
-    RouteVideolistComponent
+    RouteVideolistComponent,
+    TestDefaultPipe,
+    TestLoginComponent,
+    TestHoverFocusDirective,
+    ValidatorsEmailDomainDirective
   ],
   providers: [ SimpleService,
               {provide: 'MAX_JOKES_TOKEN', useValue: 3},
@@ -118,7 +125,8 @@ const routes:Routes = [
               RouteGuardChildrenAlwaysAuthService,
               RouteGuardChildrenOnlyLoggedInUserService,
               RouteGuardUnsearchTermService,
-              RouteUrlSaveService
+              RouteUrlSaveService,
+              {provide: 'RequiredDomain', useValue: 'example.com'}
               ],
   bootstrap: [ AppComponent ]
 })

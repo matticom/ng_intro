@@ -15,7 +15,7 @@
              [(ngModel)]="model.firstName"
              required
              #firstName="ngModel">
-      <div class="form-control-feedback"
+      <div [ngStyle]="{'color':'red'}"
            *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
         <p *ngIf="firstName.errors.required">First name is required</p>
       </div>
@@ -33,7 +33,7 @@
              [(ngModel)]="model.lastName"
              required
              #lastName="ngModel">
-      <div class="form-control-feedback"
+      <div [ngStyle]="{'color':'red'}"
            *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
         <p *ngIf="lastName.errors.required">Last name is required</p>
       </div>
@@ -53,11 +53,14 @@
            [(ngModel)]="model.email"
            required
            pattern="[^ @]*@[^ @]*"
-           #email="ngModel">
-    <div class="form-control-feedback"
+           [emailDomain]="'bla.blu'"
+           #email="ngModel"
+           >
+    <div [ngStyle]="{'color':'red'}"
          *ngIf="email.errors && (email.dirty || email.touched)">
       <p *ngIf="email.errors.required">Email is required</p>
       <p *ngIf="email.errors.pattern">Email must contain at least the @ character</p>
+      <p *ngIf="email.errors.emailDomain">Email must be on the {{ email.errors.emailDomain.requiredDomain }} domain</p>
     </div>
   </div>
 
@@ -75,7 +78,7 @@
            required
            minlength="8"
            #password="ngModel">
-    <div class="form-control-feedback"
+    <div [ngStyle]="{'color':'red'}"
          *ngIf="password.errors && (password.dirty || password.touched)">
       <p *ngIf="password.errors.required">Password is required</p>
       <p *ngIf="password.errors.minlength">Password must be at least 8 characters long</p>

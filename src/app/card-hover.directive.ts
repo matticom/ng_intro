@@ -9,11 +9,13 @@ import {
   selector: "[ccCardHover]"
 })
 export class CardHoverDirective {
-  @HostBinding('class.w3-center') private ishovering: boolean;
 
+  // ist nur für die Karten Dinger gemeint, hat nicht mit dem wechselnden Bild zu tun
+  @HostBinding('class.w3-center') private ishovering: boolean;
+  // bezieht sich auf HostElement und fügt die Klasse w3-center hinzu wenn ishovering ist true
   @Input('ccCardHover') config: {
     querySelector1: '.card-text',
-    querySelector2: '.card-text'
+    querySelector2: '.card-text' // ist nur initial, wird vom template überschrieben
   };
 
   constructor(private el: ElementRef,

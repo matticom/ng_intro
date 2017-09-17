@@ -1,5 +1,7 @@
 import { Component, OnInit} from "@angular/core";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {CodeCraftValidators} from "./validator-email-domain";
+
 
 @Component({
   selector: 'modelDrivenForm',
@@ -12,7 +14,8 @@ export class ModelDrivenFormComponent implements OnInit {
     'English',
     'French',
     'German',
-  ]
+  ];
+  requiredDomain: string = "codecraft.tv";
   myform: FormGroup;
   firstName: FormControl;
   lastName: FormControl;
@@ -30,7 +33,8 @@ export class ModelDrivenFormComponent implements OnInit {
     this.lastName = new FormControl('', Validators.required);
     this.email = new FormControl('', [
       Validators.required,
-      Validators.pattern("[^ @]*@[^ @]*")
+      Validators.pattern("[^ @]*@[^ @]*"),
+      CodeCraftValidators.emailDomain(this.requiredDomain)
     ]);
     this.password = new FormControl('', [
       Validators.minLength(8),

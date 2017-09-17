@@ -12,7 +12,7 @@ import "rxjs/Rx";
 })
 
 export class StructuralDirsComponent implements OnInit {
-  @ViewChild('mouseDetectingElement', {read: ElementRef}) imgEl: ElementRef; //@ViewChild('card', {read: ElementRef})
+  @ViewChild('mouseDetectingElement', {read: ElementRef}) imgEl: ElementRef; //Ref siehe Template unten
   mouseMovesBla: Observable<MouseEvent>; // mouseMoves$
   tooglePicFlag: boolean = true;
 
